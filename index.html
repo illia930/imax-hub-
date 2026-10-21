@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090b10">
+  <title>IMAX HUB — Больше кадра. Больше кино.</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="IMAX HUB главная"><span class="brand-mark">I</span> IMAX <b>HUB</b></a>
+    <nav><a href="#catalog">Каталог</a><a href="#collections">Подборки</a></nav>
+    <button id="searchToggle" class="icon-button" aria-label="Поиск">⌕</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <img class="hero-image" src="https://image.tmdb.org/t/p/w1280/8b8R8l88Qje9dn9OE8PY05Nxl1X.jpg" alt="">
+      <div class="hero-shade"></div>
+      <div class="hero-content">
+        <p class="eyebrow"><span class="live-dot"></span> КИНО НА БОЛЬШОМ ЭКРАНЕ</p>
+        <h1>БОЛЬШЕ КАДРА.<br><em>БОЛЬШЕ КИНО.</em></h1>
+        <p class="hero-copy">Открывай фильмы с расширенным изображением, подбирай настроение и смотри на своём экране.</p>
+        <div class="hero-actions">
+          <button class="primary-button" id="featuredPlay">▶ Смотреть демо</button>
+          <a class="secondary-button" href="#catalog">Исследовать каталог</a>
+        </div>
+        <div class="hero-tags"><span>IMAX 1.90:1</span><span>4K-ready интерфейс</span><span>Для больших экранов</span></div>
+      </div>
+      <div class="hero-index">01 <span>/</span> 04</div>
+    </section>
+
+    <section class="notice">
+      <span class="notice-icon">ⓘ</span>
+      <p>Это демонстрационная версия. Постеры загружаются из внешнего источника, а плеер воспроизводит выбранный тестовый ролик или твой собственный видеофайл. Для показа полнометражных фильмов нужны права и соответствующие видеоматериалы.</p>
+    </section>
+
+    <section class="section" id="catalog">
+      <div class="section-heading">
+        <div><p class="eyebrow">ВЫБИРАЙ СВОЙ СЕАНС</p><h2>Каталог <span>фильмов</span></h2></div>
+        <label class="search-box" id="searchBox"><span>⌕</span><input id="searchInput" type="search" placeholder="Найти фильм..." autocomplete="off"></label>
+      </div>
+      <div class="filters" id="filters">
+        <button class="filter active" data-filter="Все">Все фильмы</button>
+        <button class="filter" data-filter="Фантастика">Фантастика</button>
+        <button class="filter" data-filter="Экшен">Экшен</button>
+        <button class="filter" data-filter="Драма">Драма</button>
+        <button class="filter" data-filter="Анимация">Анимация</button>
+      </div>
+      <div class="movie-grid" id="movieGrid"></div>
+      <p class="empty-state" id="emptyState" hidden>Ничего не найдено. Попробуй другое название.</p>
+    </section>
+
+    <section class="collections" id="collections">
+      <div><p class="eyebrow">ДЛЯ ТВОЕГО ЭКРАНА</p><h2>Подборки <span>по настроению</span></h2></div>
+      <div class="collection-grid">
+        <button class="collection-card collection-one" data-collection="Фантастика"><span>01 / МИРЫ ЗА ГРАНЬЮ</span><b>Научная фантастика</b><i>Исследовать ↗</i></button>
+        <button class="collection-card collection-two" data-collection="Экшен"><span>02 / БЕЗ ПЕРЕДЫШКИ</span><b>Большой экшен</b><i>Исследовать ↗</i></button>
+        <button class="collection-card collection-three" data-collection="Анимация"><span>03 / ДРУГИЕ ВСЕЛЕННЫЕ</span><b>Анимация</b><i>Исследовать ↗</i></button>
+      </div>
+    </section>
+  </main>
+
+  <footer><a class="brand" href="#"><span class="brand-mark">I</span> IMAX <b>HUB</b></a><p>Больше кадра. Больше кино.</p><span>Демо-проект · 2026</span></footer>
+
+  <dialog id="playerDialog" class="player-dialog">
+    <div class="player-shell">
+      <div class="player-top"><div><span class="player-kicker">IMAX HUB PLAYER</span><h3 id="playerTitle">Тестовый просмотр</h3></div><button id="closePlayer" class="close-button" aria-label="Закрыть">✕</button></div>
+      <div class="video-frame" id="videoFrame">
+        <video id="videoPlayer" controls playsinline preload="metadata">
+          <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+          Твой браузер не поддерживает видео.
+        </video>
+      </div>
+      <div class="player-controls">
+        <div><strong id="ratioLabel">Режим кадра: исходный</strong><p>Режим 1.90:1 меняет отображение контейнера, но не добавляет детали, которых нет в исходном видео.</p></div>
+        <button id="ratioToggle" class="secondary-button">Режим 1.90:1</button>
+      </div>
+      <label class="file-picker">Открыть свой видеофайл <input id="localVideo" type="file" accept="video/*"></label>
+      <p class="player-footnote">Используй только видео, на просмотр и хранение которого у тебя есть права.</p>
+    </div>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
